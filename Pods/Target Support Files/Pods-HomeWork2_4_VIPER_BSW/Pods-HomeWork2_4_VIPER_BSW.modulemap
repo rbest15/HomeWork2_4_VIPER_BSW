@@ -1,0 +1,6 @@
+module Pods_HomeWork2_4_VIPER_BSW {
+  umbrella header "Pods-HomeWork2_4_VIPER_BSW-umbrella.h"
+
+  export *
+  module * { export * }
+}
