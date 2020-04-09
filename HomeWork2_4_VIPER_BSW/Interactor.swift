@@ -16,7 +16,9 @@ class Interactor : InteractorInput{
     func fetchDataFromURLAndReloadData(url: String, tableView: UITableView) {
         AF.request(url).validate().responseJSON { (response) in
             let arrayFromData = try? JSONDecoder().decode( [String: CategoriesDecoder].self, from: response.data!)
-            for cats in arrayFromData! {
+            let sortedrray = arrayFromData?.sorted(by: { Int($0.key)! < Int($1.key)!
+            })
+            for cats in sortedrray! {
                 self.output?.fethedArrayOfStrings.append(cats.value.name)
             }
             DispatchQueue.main.async {
